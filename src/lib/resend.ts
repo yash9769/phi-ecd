@@ -38,11 +38,35 @@ export const DEFAULT_MEMORIAL_EMAIL_BODY = `<div style="font-family: Arial, Helv
 
   <p>Thank you for your understanding, kindness, and support.</p>
 
-  <p style="margin-top: 28px;">
-    Regards,<br/>
-    <strong>Human Resources</strong><br/>
-    <strong>JHS Associates</strong>
-  </p>
+  <div style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 12px; font-size: 13px; color: #1e293b; line-height: 1.5;">
+    <p style="margin: 0 0 4px 0; font-weight: bold; color: #0f172a;">Thanks and Regards</p>
+    <p style="margin: 0 0 2px 0; font-weight: bold; color: #0f172a;">HR Team</p>
+    <p style="margin: 0 0 2px 0;"><strong>M:</strong> India (+91) 8097093034</p>
+    <p style="margin: 0 0 10px 0;"><strong>Email:</strong> <a href="mailto:hr@jhsossociates.in" style="color: #0284c7; text-decoration: none;">hr@jhsossociates.in</a></p>
+    
+    <div style="margin: 10px 0;">
+      <img src="https://awareness-jhs.vercel.app/jhs-logo.png" alt="JHS & Associates LLP" style="max-height: 55px; width: auto; display: block;" />
+    </div>
+
+    <p style="margin: 4px 0 2px 0; font-size: 12px; color: #475569;">(A peer reviewed firm)</p>
+    <p style="margin: 0 0 8px 0; font-size: 12px; color: #475569;"><strong>Linkedin Id:</strong></p>
+
+    <p style="margin: 0 0 10px 0; font-size: 12px; color: #334155;">
+      <strong>MUMBAI:</strong> Exit No.3, Marol Naka, Metro Station, B Wing 4th Floor, Navkar Chambers, Marol, Andheri East, Mumbai, Maharashtra 400059.
+    </p>
+
+    <p style="margin: 0 0 10px 0; font-size: 12px; color: #b91c1c; font-weight: bold;">
+      India Presence: <span style="color: #334155; font-weight: normal;">Ahmedabad | Bengaluru | Chennai | Gurugram | Kolkata | Mumbai | New Delhi | Rajkot | Surat | Vadodara | Vapi</span>
+    </p>
+
+    <p style="margin: 0 0 14px 0; font-size: 12px;">
+      <strong>Visit us on</strong> <a href="http://www.jhsassociates.in" style="color: #0284c7; text-decoration: underline;">www.jhsassociates.in</a>
+    </p>
+
+    <p style="margin: 12px 0 0 0; font-size: 10px; color: #64748b; line-height: 1.4; border-top: 1px solid #f1f5f9; padding-top: 8px;">
+      <strong>Disclaimer:</strong> This message may contain privileged and confidential information intended only for the use of the addressee named above. If you are not the intended recipient of this message, you are hereby notified that any use, dissemination, distribution, or reproduction of this message is prohibited. If you have received this message in error, please notify JHS & Associates LLP immediately. Any views expressed in this message are those of the individual sender and may not necessarily reflect the views of JHS & Associates LLP.
+    </p>
+  </div>
 </div>`;
 
 export async function sendTestEmail({
