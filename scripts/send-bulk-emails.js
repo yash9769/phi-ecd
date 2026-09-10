@@ -142,12 +142,16 @@ async function main() {
 
     const payload = batchEmployees.map(emp => {
       const personalizedHtml = EMAIL_HTML_TEMPLATE
-        .replace(/{{full_name}}/g, emp.full_name || 'Valued Colleague')
-        .replace(/{{email}}/g, emp.email);
+        .replace(/\{\{\s*full_name\s*\}\}/g, emp.full_name || 'Valued Colleague')
+        .replace(/\{\{\s*employee_id\s*\}\}/g, emp.employee_id || 'N/A')
+        .replace(/\{\{\s*email\s*\}\}/g, emp.email)
+        .replace(/\{\{\s*foundation_url\s*\}\}/g, GOOGLE_FORM_URL);
 
       const personalizedText = EMAIL_TEXT_TEMPLATE
-        .replace(/{{full_name}}/g, emp.full_name || 'Valued Colleague')
-        .replace(/{{email}}/g, emp.email);
+        .replace(/\{\{\s*full_name\s*\}\}/g, emp.full_name || 'Valued Colleague')
+        .replace(/\{\{\s*employee_id\s*\}\}/g, emp.employee_id || 'N/A')
+        .replace(/\{\{\s*email\s*\}\}/g, emp.email)
+        .replace(/\{\{\s*foundation_url\s*\}\}/g, GOOGLE_FORM_URL);
 
       return {
         from: RESEND_FROM_EMAIL,
