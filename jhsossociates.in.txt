@@ -1,0 +1,48 @@
+;;
+;; Domain:     jhsossociates.in.
+;; Exported:   2026-09-10 09:04:44
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+;; SOA Record
+jhsossociates.in	3600	IN	SOA	dorthy.ns.cloudflare.com. dns.cloudflare.com. 2054069768 10000 2400 604800 3600
+
+;; NS Records
+jhsossociates.in.	86400	IN	NS	dorthy.ns.cloudflare.com.
+jhsossociates.in.	86400	IN	NS	todd.ns.cloudflare.com.
+
+;; CNAME Records
+bounces.jhsossociates.in.	1	IN	CNAME	feedback.resend.com. ; cf_tags=cf-proxied:false
+_domainconnect.jhsossociates.in.	1	IN	CNAME	_domainconnect.gd.domaincontrol.com. ; cf_tags=cf-proxied:false
+jhsossociates.in.	1	IN	CNAME	ecdactivity-1.onrender.com. ; cf_tags=cf-proxied:true
+www.jhsossociates.in.	1	IN	CNAME	ecdactivity-1.onrender.com. ; cf_tags=cf-proxied:true
+
+;; MX Records
+send.jhsossociates.in.	1	IN	MX	10 feedback-smtp.ap-northeast-1.amazonses.com.
+
+;; TXT Records
+_dmarc.jhsossociates.in.	1	IN	TXT	"v=DMARC1; p=none;"
+jhsossociates.in.	1	IN	TXT	"v=spf1 include:amazonses.com ~all"
+jhsossociates.in.	1	IN	TXT	"zoho-verification=zb89761132.zmverify.zoho.in"
+_railway-verify.jhsossociates.in.	3600	IN	TXT	"railway-verify=2db2d1a59fee56cec5caf27bbc692e021fde7ad436c37f33036fa2fbb8399bda"
+resend._domainkey.jhsossociates.in.	1	IN	TXT	"p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC1UveCf12ua6B2ZncFCHKC5cHQzNQcJsLhnkISRCWmjMqoPLOGnO6o1vgdIpNR9iIocfJBTEa5JZRV8sipQ/MuY5tgOZe7EDpkz2I1+3BOhpp46mK4jdlNDfaKphdlobKgyq+fhcpKTUkXo4DDM2w2xX7OqG5L+/dY/UFh+NKrVwIDAQAB"
+send.jhsossociates.in.	1	IN	TXT	"v=spf1 include:amazonses.com ~all"
