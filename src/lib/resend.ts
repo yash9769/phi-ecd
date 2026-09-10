@@ -21,24 +21,27 @@ export function personalizeEmail(
     .replace(/\{\{\s*foundation_url\s*\}\}/g, FOUNDATION_URL);
 }
 
-export const DEFAULT_MEMORIAL_EMAIL_SUBJECT = 'Foundation of Hope Initiative — Ahmed Huziefa Unwala';
+export const DEFAULT_MEMORIAL_EMAIL_SUBJECT = 'An Initiative in Memory of Ahmed Huziefa Unwala';
 
-export const DEFAULT_MEMORIAL_EMAIL_BODY = `<div style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; color: #111827;">
+export const DEFAULT_MEMORIAL_EMAIL_BODY = `<div style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.7; color: #111827; max-width: 600px;">
   <p>Dear {{full_name}},</p>
 
-  <p>Foundation of Hope is a special initiative established in memory of <strong>Ahmed Huziefa Unwala</strong>, beloved son of Huziefa Unwala.</p>
+  <p>With deep sadness, we share the passing of <strong>Ahmed Huziefa Unwala</strong>, beloved son of <strong>Mr. Huziefa Unwala</strong>.</p>
 
-  <p>We invite all JHS team members to participate and submit their details via the official Google Form link below:</p>
+  <p>In his memory, <strong>JHS Associates</strong> is introducing <strong>Foundation of Hope</strong>, an initiative through which our JHS family can come together and honour his memory.</p>
 
-  <p style="margin: 20px 0;">
-    👉 <a href="https://forms.gle/SEcWiM9JFVBHfDbYA" style="color: #0284c7; font-weight: bold; text-decoration: underline;">https://forms.gle/SEcWiM9JFVBHfDbYA</a>
+  <p>We invite you to take a moment to learn about the initiative and participate if you wish. Your support and participation would be deeply appreciated.</p>
+
+  <p style="margin: 22px 0;">
+    <a href="https://forms.gle/SEcWiM9JFVBHfDbYA" style="color: #0284c7; font-weight: bold; text-decoration: underline; font-size: 15px;">https://forms.gle/SEcWiM9JFVBHfDbYA</a>
   </p>
 
-  <p>Thank you for your support and participation.</p>
+  <p>Thank you for your understanding, kindness, and support.</p>
 
   <p style="margin-top: 28px;">
-    Warm regards,<br/>
-    <strong>JHS & Associates LLP</strong>
+    Regards,<br/>
+    <strong>Human Resources</strong><br/>
+    <strong>JHS Associates</strong>
   </p>
 </div>`;
 

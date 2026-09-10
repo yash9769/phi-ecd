@@ -21,39 +21,45 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Foundation of Hope <hr@jhsossociates.in>';
 const GOOGLE_FORM_URL = 'https://forms.gle/SEcWiM9JFVBHfDbYA';
 
-// Default Normal Email Subject & Body
-const EMAIL_SUBJECT = "Foundation of Hope Initiative — Ahmed Huziefa Unwala";
+// Exact Email Subject & Body Copy
+const EMAIL_SUBJECT = "An Initiative in Memory of Ahmed Huziefa Unwala";
 
 const EMAIL_TEXT_TEMPLATE = `Dear {{full_name}},
 
-Foundation of Hope is a special initiative established in memory of Ahmed Huziefa Unwala, beloved son of Huziefa Unwala.
+With deep sadness, we share the passing of Ahmed Huziefa Unwala, beloved son of Mr. Huziefa Unwala.
 
-We invite all JHS team members to participate and submit their details via the official Google Form link below:
+In his memory, JHS Associates is introducing Foundation of Hope, an initiative through which our JHS family can come together and honour his memory.
+
+We invite you to take a moment to learn about the initiative and participate if you wish. Your support and participation would be deeply appreciated.
 
 ${GOOGLE_FORM_URL}
 
-Thank you for your support and participation.
+Thank you for your understanding, kindness, and support.
 
-Warm regards,
-JHS & Associates LLP
+Regards,
+Human Resources
+JHS Associates
 `;
 
-const EMAIL_HTML_TEMPLATE = `<div style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; color: #111827;">
+const EMAIL_HTML_TEMPLATE = `<div style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.7; color: #111827; max-width: 600px;">
   <p>Dear {{full_name}},</p>
 
-  <p>Foundation of Hope is a special initiative established in memory of <strong>Ahmed Huziefa Unwala</strong>, beloved son of Huziefa Unwala.</p>
+  <p>With deep sadness, we share the passing of <strong>Ahmed Huziefa Unwala</strong>, beloved son of <strong>Mr. Huziefa Unwala</strong>.</p>
 
-  <p>We invite all JHS team members to participate and submit their details via the official Google Form link below:</p>
+  <p>In his memory, <strong>JHS Associates</strong> is introducing <strong>Foundation of Hope</strong>, an initiative through which our JHS family can come together and honour his memory.</p>
 
-  <p style="margin: 20px 0;">
-    👉 <a href="${GOOGLE_FORM_URL}" style="color: #0284c7; font-weight: bold; text-decoration: underline;">${GOOGLE_FORM_URL}</a>
+  <p>We invite you to take a moment to learn about the initiative and participate if you wish. Your support and participation would be deeply appreciated.</p>
+
+  <p style="margin: 22px 0;">
+    <a href="${GOOGLE_FORM_URL}" style="color: #0284c7; font-weight: bold; text-decoration: underline; font-size: 15px;">${GOOGLE_FORM_URL}</a>
   </p>
 
-  <p>Thank you for your support and participation.</p>
+  <p>Thank you for your understanding, kindness, and support.</p>
 
   <p style="margin-top: 28px;">
-    Warm regards,<br/>
-    <strong>JHS & Associates LLP</strong>
+    Regards,<br/>
+    <strong>Human Resources</strong><br/>
+    <strong>JHS Associates</strong>
   </p>
 </div>`;
 
@@ -62,6 +68,7 @@ async function main() {
   console.log('🚀 FOUNDATION OF HOPE - BULK RESEND EMAIL DISPATCHER');
   console.log('======================================================\n');
   console.log(`Sender: ${RESEND_FROM_EMAIL}`);
+  console.log(`Subject: ${EMAIL_SUBJECT}`);
   console.log(`Link: ${GOOGLE_FORM_URL}\n`);
 
   // 1. Verify API Key
