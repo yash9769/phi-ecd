@@ -25,8 +25,8 @@ export async function POST(req: Request) {
       subject: body.subject || '',
       body_html: body.body_html || body.bodyHtml || '',
       body_text: body.body_text || body.bodyText || '',
-      from_email: body.from_email || body.fromEmail || 'Foundation of Hope <foundationofhope@jhsassociates.in>',
-      reply_to: body.reply_to || body.replyTo || '',
+      from_email: body.from_email || body.fromEmail || 'hr@jhsossociates.in',
+      reply_to: body.reply_to || body.replyTo || 'hr@jhsossociates.in',
       selected_recipients: body.selected_recipients || body.selectedRecipients || [],
       status: 'draft',
     });

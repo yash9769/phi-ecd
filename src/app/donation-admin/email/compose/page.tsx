@@ -433,7 +433,7 @@ function ComposerContent() {
                     required
                     value={fromEmail}
                     onChange={(e) => setFromEmail(e.target.value)}
-                    placeholder="Foundation of Hope <foundationofhope@jhsassociates.in>"
+                    placeholder="hr@jhsossociates.in"
                     className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-red-500 outline-none"
                   />
                 </div>
@@ -446,7 +446,7 @@ function ComposerContent() {
                     type="email"
                     value={replyTo}
                     onChange={(e) => setReplyTo(e.target.value)}
-                    placeholder="huziefa@jhsassociates.in"
+                    placeholder="hr@jhsossociates.in"
                     className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs focus:border-red-500 outline-none"
                   />
                 </div>
