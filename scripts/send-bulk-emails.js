@@ -19,7 +19,7 @@ if (fs.existsSync(envPath)) {
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Foundation of Hope <foundationofhope@jhsassociates.in>';
-const BASE_URL = process.env.NEXT_PUBLIC_FOUNDATION_OF_HOPE_URL || 'https://phi-ecd.vercel.app';
+const BASE_URL = process.env.NEXT_PUBLIC_FOUNDATION_OF_HOPE_URL || 'https://awareness-jhs.vercel.app';
 
 // Default Email Subject & HTML Template
 const EMAIL_SUBJECT = "In Memory of Ahmed Huziefa Unwala — Foundation of Hope Initiative";

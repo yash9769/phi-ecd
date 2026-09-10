@@ -4,7 +4,7 @@ import { Employee } from './types';
 const resendApiKey = process.env.RESEND_API_KEY || '';
 export const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
-const FOUNDATION_URL = process.env.NEXT_PUBLIC_FOUNDATION_OF_HOPE_URL || process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3001';
+const FOUNDATION_URL = process.env.NEXT_PUBLIC_FOUNDATION_OF_HOPE_URL || process.env.NEXT_PUBLIC_APP_URL || 'https://awareness-jhs.vercel.app';
 
 export function personalizeEmail(
   templateHtml: string,

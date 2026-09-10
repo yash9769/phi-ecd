@@ -71,7 +71,7 @@ const EMAIL_HTML_TEMPLATE = `
 
       <!-- Action CTA Button -->
       <div style="text-align: center; margin: 32px 0;">
-        <a href="https://phi-ecd.vercel.app" style="background-color: #0284c7; color: #ffffff; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 28px; border-radius: 8px; display: inline-block;">
+        <a href="https://awareness-jhs.vercel.app" style="background-color: #0284c7; color: #ffffff; font-size: 15px; font-weight: 600; text-decoration: none; padding: 14px 28px; border-radius: 8px; display: inline-block;">
           View Foundation of Hope Initiative
         </a>
       </div>
