@@ -34,8 +34,8 @@ function ComposerContent() {
   const [draftId, setDraftId] = useState<string | null>(draftIdParam);
   const [campaignName, setCampaignName] = useState('Ahmed Memorial Announcement');
   const [subject, setSubject] = useState(DEFAULT_MEMORIAL_EMAIL_SUBJECT);
-  const [fromEmail, setFromEmail] = useState('Foundation of Hope <foundationofhope@jhsassociates.in>');
-  const [replyTo, setReplyTo] = useState('huziefa@jhsassociates.in');
+  const [fromEmail, setFromEmail] = useState('Foundation of Hope <hr@jhsossociates.in>');
+  const [replyTo, setReplyTo] = useState('hr@jhsossociates.in');
   const [bodyHtml, setBodyHtml] = useState(DEFAULT_MEMORIAL_EMAIL_BODY);
 
   // Employee Selection State
@@ -43,6 +43,43 @@ function ComposerContent() {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [employeeSearch, setEmployeeSearch] = useState('');
   const [loadingEmployees, setLoadingEmployees] = useState(true);
+  const [manualEmailsInput, setManualEmailsInput] = useState('');
+
+  const handleAddManualEmails = () => {
+    if (!manualEmailsInput.trim()) return;
+
+    const parsed = manualEmailsInput
+      .split(/[\n,;]+/)
+      .map((e) => e.trim().toLowerCase())
+      .filter((e) => e.includes('@'));
+
+    if (parsed.length === 0) {
+      alert('No valid email addresses found.');
+      return;
+    }
+
+    const newEmployees: Employee[] = [];
+    const newIds: string[] = [];
+
+    parsed.forEach((email, idx) => {
+      const id = `manual-${Date.now()}-${idx}`;
+      const emp: Employee = {
+        id,
+        full_name: email.split('@')[0],
+        email,
+        employee_id: `MAN-${idx + 1}`,
+        phone: '',
+        created_at: new Date().toISOString(),
+      };
+      newEmployees.push(emp);
+      newIds.push(id);
+    });
+
+    setEmployees((prev) => [...newEmployees, ...prev]);
+    setSelectedIds((prev) => Array.from(new Set([...prev, ...newIds])));
+    setManualEmailsInput('');
+    alert(`Added ${newEmployees.length} email(s) to targeted recipients!`);
+  };
 
   // Modals
   const [showPreview, setShowPreview] = useState(false);
@@ -503,6 +540,29 @@ function ComposerContent() {
                     <span>Upload CSV</span>
                     <input type="file" accept=".csv" onChange={handleCsvImport} className="hidden" />
                   </label>
+                </div>
+
+                {/* Manual Email Paste Box */}
+                <div className="bg-slate-950 p-3 border border-slate-800 rounded-xl space-y-2">
+                  <label className="block text-[11px] font-bold text-slate-300 uppercase tracking-wider">
+                    Paste / Type Target Emails (Comma or Line Separated)
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="e.g. user1@gmail.com, user2@domain.com"
+                      value={manualEmailsInput}
+                      onChange={(e) => setManualEmailsInput(e.target.value)}
+                      className="flex-1 px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-white text-xs outline-none focus:border-red-500"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleAddManualEmails}
+                      className="px-3 py-1.5 bg-red-900 hover:bg-red-800 text-white text-xs font-bold rounded-lg transition shadow"
+                    >
+                      + Add Emails
+                    </button>
+                  </div>
                 </div>
 
                 <div className="flex items-center justify-between text-xs pt-1">
