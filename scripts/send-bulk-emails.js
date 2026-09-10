@@ -18,7 +18,7 @@ if (fs.existsSync(envPath)) {
 }
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Foundation of Hope <hr@jhsossociates.in>';
+const RESEND_FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'hr@jhsossociates.in';
 const GOOGLE_FORM_URL = 'https://forms.gle/SEcWiM9JFVBHfDbYA';
 
 // Exact Email Subject & Body Copy

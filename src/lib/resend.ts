@@ -49,7 +49,7 @@ export async function sendTestEmail({
   to,
   subject,
   bodyHtml,
-  fromEmail = 'Foundation of Hope <hr@jhsossociates.in>',
+  fromEmail = 'hr@jhsossociates.in',
   replyTo = 'hr@jhsossociates.in',
 }: {
   to: string;
@@ -89,7 +89,7 @@ export async function sendTestEmail({
 }
 
 export async function sendBatchCampaign({
-  fromEmail = 'Foundation of Hope <hr@jhsossociates.in>',
+  fromEmail = 'hr@jhsossociates.in',
   replyTo = 'hr@jhsossociates.in',
   subject,
   bodyHtml,

@@ -17,7 +17,7 @@ if (fs.existsSync(envPath)) {
 }
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Foundation of Hope <hr@jhsossociates.in>';
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'hr@jhsossociates.in';
 
 // Only Yashodhan Rajapkar (Amit Kumar removed as per request)
 const recipients = [

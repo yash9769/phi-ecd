@@ -34,7 +34,7 @@ function ComposerContent() {
   const [draftId, setDraftId] = useState<string | null>(draftIdParam);
   const [campaignName, setCampaignName] = useState('Ahmed Memorial Announcement');
   const [subject, setSubject] = useState(DEFAULT_MEMORIAL_EMAIL_SUBJECT);
-  const [fromEmail, setFromEmail] = useState('Foundation of Hope <hr@jhsossociates.in>');
+  const [fromEmail, setFromEmail] = useState('hr@jhsossociates.in');
   const [replyTo, setReplyTo] = useState('hr@jhsossociates.in');
   const [bodyHtml, setBodyHtml] = useState(DEFAULT_MEMORIAL_EMAIL_BODY);
 
