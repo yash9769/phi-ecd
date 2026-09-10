@@ -2,7 +2,6 @@
 
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { ShieldCheck, AlertTriangle } from 'lucide-react';
 import { telemetry } from '@/lib/telemetry';
 
 export default function CybersecurityAwarenessPage() {
@@ -41,35 +40,6 @@ export default function CybersecurityAwarenessPage() {
               YOU'VE BEEN HACKED!
             </h1>
           </div>
-
-          {/* Explanation Text */}
-          <div className="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
-            <p className="font-medium text-slate-200">
-              Don't worry! This was an internal cybersecurity awareness campaign designed to demonstrate how easily a convincing message can make someone share information without first verifying its source.
-            </p>
-          </div>
-
-          {/* Key Lesson Box */}
-          <div className="bg-slate-950/90 border border-amber-500/30 rounded-2xl p-5 sm:p-6 text-left space-y-3 shadow-inner">
-            <div className="flex items-center space-x-2 text-amber-400 font-bold text-xs sm:text-sm uppercase tracking-wide">
-              <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-              <span>The Key Lesson</span>
-            </div>
-            <p className="text-amber-100 font-bold text-lg sm:text-xl leading-snug">
-              Stop. Verify. Think before you share information or take action online.
-            </p>
-          </div>
-
-          {/* Thank You Note */}
-          <div className="pt-4 border-t border-slate-800/80 flex items-center justify-center space-x-2 text-slate-400 font-medium text-sm sm:text-base">
-            <ShieldCheck className="w-5 h-5 text-emerald-400" />
-            <span>Thank you for participating.</span>
-          </div>
-        </div>
-
-        {/* Footer Note */}
-        <div className="text-center text-xs text-slate-500">
-          Internal Information Security & Compliance Awareness Campaign
         </div>
       </div>
     </main>
