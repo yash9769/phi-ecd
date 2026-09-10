@@ -21,7 +21,8 @@ import {
   X,
   AlertCircle,
   Sparkles,
-  ArrowLeft
+  ArrowLeft,
+  Upload
 } from 'lucide-react';
 
 function ComposerContent() {
@@ -115,6 +116,54 @@ function ComposerContent() {
     setSelectedIds((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     );
+  };
+
+  // CSV Bulk Employee Upload Handler (e.g. 400 employees)
+  const handleCsvImport = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const text = event.target?.result as string;
+      if (!text) return;
+
+      const lines = text.split('\n').filter((l) => l.trim() !== '');
+      if (lines.length < 2) {
+        alert('CSV file is empty or missing header row.');
+        return;
+      }
+
+      const importedEmployees: Employee[] = [];
+      const newSelectedIds: string[] = [];
+
+      for (let i = 1; i < lines.length; i++) {
+        const parts = lines[i].split(',').map((p) => p.trim().replace(/^["']|["']$/g, ''));
+        if (parts.length >= 2 && parts[1].includes('@')) {
+          const empId = parts[2] || `CSV-${i}`;
+          const id = `imp-${Date.now()}-${i}`;
+          const emp: Employee = {
+            id,
+            full_name: parts[0] || 'Valued Colleague',
+            email: parts[1],
+            employee_id: empId,
+            phone: '',
+            created_at: new Date().toISOString(),
+          };
+          importedEmployees.push(emp);
+          newSelectedIds.push(id);
+        }
+      }
+
+      if (importedEmployees.length > 0) {
+        setEmployees((prev) => [...importedEmployees, ...prev]);
+        setSelectedIds((prev) => Array.from(new Set([...prev, ...newSelectedIds])));
+        alert(`Successfully imported ${importedEmployees.length} employees from CSV!`);
+      } else {
+        alert('No valid employee records found in CSV. Format: full_name, email, employee_id');
+      }
+    };
+    reader.readAsText(file);
   };
 
   // Save Draft Handler
@@ -437,15 +486,23 @@ function ComposerContent() {
 
               {/* Search & Bulk Select Controls */}
               <div className="space-y-3">
-                <div className="relative">
-                  <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    placeholder="Search employees..."
-                    value={employeeSearch}
-                    onChange={(e) => setEmployeeSearch(e.target.value)}
-                    className="w-full pl-9 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs outline-none"
-                  />
+                <div className="flex items-center justify-between gap-2">
+                  <div className="relative flex-1">
+                    <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="text"
+                      placeholder="Search employees..."
+                      value={employeeSearch}
+                      onChange={(e) => setEmployeeSearch(e.target.value)}
+                      className="w-full pl-9 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs outline-none focus:border-red-500"
+                    />
+                  </div>
+
+                  <label className="cursor-pointer inline-flex items-center gap-1.5 text-xs font-bold text-indigo-300 hover:text-white bg-indigo-950/80 hover:bg-indigo-900 border border-indigo-700/60 px-3 py-2 rounded-xl transition shadow flex-shrink-0">
+                    <Upload className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>Upload CSV</span>
+                    <input type="file" accept=".csv" onChange={handleCsvImport} className="hidden" />
+                  </label>
                 </div>
 
                 <div className="flex items-center justify-between text-xs pt-1">
