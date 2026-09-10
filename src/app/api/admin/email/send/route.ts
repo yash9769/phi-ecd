@@ -76,7 +76,7 @@ export async function POST(req: Request) {
         email: targetEmployees.find((e) => e.id === res.recipientId)?.email || '',
         resend_message_id: res.resendMessageId,
         status: isSent ? ('sent' as const) : ('failed' as const),
-        error_message: res.error,
+        error_message: 'error' in res ? res.error : undefined,
         sent_at: new Date().toISOString(),
       };
     });
