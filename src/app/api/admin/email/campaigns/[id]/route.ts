@@ -12,12 +12,18 @@ export async function GET(
   }
 
   const resolvedParams = await params;
-  const campaign = await db.getCampaignById(resolvedParams.id);
+  const campaignId = resolvedParams?.id || (params as any)?.id;
+
+  if (!campaignId) {
+    return NextResponse.json({ success: false, error: 'Campaign ID parameter required' }, { status: 400 });
+  }
+
+  const campaign = await db.getCampaignById(campaignId);
   if (!campaign) {
     return NextResponse.json({ success: false, error: 'Campaign not found' }, { status: 404 });
   }
 
-  const recipients = await db.getRecipientsByCampaignId(resolvedParams.id);
+  const recipients = await db.getRecipientsByCampaignId(campaignId);
 
   return NextResponse.json({
     success: true,
